@@ -1,6 +1,9 @@
 ### 项目结构
 #### [index.html](index.html)、[script.js](script.js)、[styles.css](styles.css)：源码:可直接运行。
-#### dist：此目录下有打包好的exe离线安装包，可单独下载使用。
+#### 离线安装包
+        通过网盘分享的文件：图片高级对比工具 Setup 1.0.0.exe
+        链接: https://pan.baidu.com/s/1pcDMpRit6XbEM0ody6YboQ?pwd=4ezd 提取码: 4ezd 
+        --来自百度网盘超级会员v6的分享
 #### [node_modules](node_modules) ：因为electron的依赖安装异常繁琐，我直接配置好上传了，如果您没有打包要求，忽略此文件的下载。
 
 科研与设计利器！体验「高级图片同步对比器」的多模态图像分析​​
