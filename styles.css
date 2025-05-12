@@ -1,0 +1,207 @@
+/* 主对比容器样式 */
+.comparison-container {
+    position: relative;
+    max-width: 1400px;
+    margin: 2rem auto;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    touch-action: none;
+}
+
+/* 图片容器样式 */
+.image-container {
+    position: relative;
+    height: 660px;
+}
+
+/* 前后图片公共样式 */
+/* 前后图片公共样式 */
+.image-before,
+.image-after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain; /* 修改为contain，确保图片完整显示 */
+    background-position: center;
+    background-repeat: no-repeat; /* 防止图片重复 */
+    will-change: transform, clip-path, opacity;
+    transition: transform 0.1s ease-out, opacity 0.5s ease-in-out;
+}
+
+/* 滑动模式样式 */
+.comparison-mode .image-before {
+    clip-path: inset(0 0 0 50%);
+    z-index: 2;
+    opacity: 1;
+}
+
+/* 淡入淡出模式样式 */
+.fade-mode .image-after {
+    clip-path: none;
+    z-index: 2;
+}
+
+/* 左右分栏模式样式 */
+.split-mode .image-container {
+    display: flex;
+    height: auto;
+}
+
+.split-mode .image-split-container {
+    position: relative;
+    width: 50%;
+    height: 700px; /* 增加高度 */
+    overflow: hidden;
+}
+
+/* 左右分栏模式样式 */
+.split-mode .image-before,
+.split-mode .image-after {
+    background-size: contain; /* 保持contain，确保图片完整显示 */
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.3s ease;
+}
+
+/* 滑动手柄样式 */
+.slider-handle {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background: #fff;
+    cursor: col-resize;
+    transform: translateX(-50%);
+    z-index: 3;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: background 0.2s;
+}
+
+/* 模式特定的手柄显示 */
+.comparison-mode .slider-handle {
+    opacity: 1;
+}
+
+.fade-mode .slider-handle,
+.split-mode .slider-handle {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.slider-handle::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.slider-handle:hover::before {
+    background: rgba(255, 255, 255, 1);
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.dragging .slider-handle::before {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 图片拖拽样式 */
+.image-dragging .image-before,
+.image-dragging .image-after {
+    cursor: grabbing;
+}
+
+/* 加载状态 */
+.loading::after {
+    content: '加载中...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+/* 模式切换按钮样式 */
+.mode-switch {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.mode-btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.mode-btn:hover {
+    background-color: #45a049;
+}
+
+.mode-btn.active {
+    background-color: #2E7D32;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* 缩放控制UI */
+.zoom-controls {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.zoom-btn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #eee;
+}
+
+.zoom-btn:last-child {
+    border-bottom: none;
+}
+
+.zoom-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.zoom-level {
+    padding: 5px;
+    font-size: 12px;
+    text-align: center;
+}

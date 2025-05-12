@@ -1,0 +1,6 @@
+/node_modules/
+/dist/win-ia32-unpacked/
+/dist/win-unpacked/
+/dist/builder-debug.yml
+/dist/builder-effective-config.yaml
+/dist/图片高级对比工具 Setup 1.0.0.exe.blockmap

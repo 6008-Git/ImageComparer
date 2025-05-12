@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* 样式 */
+        .top-bar {
+            background-color: #ffffff;
+            color: #333;
+            padding: 16px 24px;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .title_son {
+            font-size: 16px;
+        }
+
+        .bottom-signature {
+            text-align: center;
+            margin: 1rem 0;
+            color: #666;
+            font-size: 14px;
+        }
+        .swap-btn {
+            background-color: #a6d5f8;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+    </style>
+    <title>高级图片同步对比器</title>
+</head>
+
+<body>
+<!--顶部固定栏-->
+<div class="top-bar">
+    <div class="title">高级图片同步对比器</div>
+    <br>
+    <div class="title_son">--新疆大学硕士 李康</div>
+</div>
+<!-- 文件选择区域 -->
+<div class="file-selectors" style="text-align: center; margin: 1rem;">
+    <label for="afterFile" style="margin-left: 1rem;">左侧原图图片：</label>
+    <input type="file" id="afterFile" accept="image/*" style="margin-right: 1rem;">
+    <label for="beforeFile" style="margin-right: 1rem;">右侧掩码图片：</label>
+    <input type="file" id="beforeFile" accept="image/*">
+</div>
+
+<!-- 交换按钮 - 初始隐藏 -->
+<div id="swapBtnContainer" style="text-align: center; margin: 1rem; display: none;">
+    <!--        <button id="swapBtn" class="swap-btn">交换左右图片</button>-->
+</div>
+
+<!-- 模式切换按钮 -->
+<div class="mode-switch">
+    <button id="comparisonModeBtn" class="mode-btn active">滑动对比</button>
+    <button id="fadeModeBtn" class="mode-btn">淡入淡出</button>
+    <button id="splitModeBtn" class="mode-btn">左右分开</button>
+    <button id="swapBtn" class="swap-btn">交换左右图片</button>
+
+</div>
+
+<!-- 透明度控制滑块 -->
+<div id="fadeSliderContainer" class="fade-slider-container" style="text-align: center; margin: 1rem; display: none;">
+    <label for="fadeSlider">透明度: <span id="opacityValue">80%</span></label>
+    <input type="range" id="fadeSlider" min="0" max="100" value="80" style="width: 300px; vertical-align: middle;">
+</div>
+
+<!-- 主容器 -->
+<div class="comparison-container loading comparison-mode" id="comparisonContainer">
+    <div class="image-container">
+        <div class="image-split-container" id="leftContainer">
+            <div class="image-before" style="background-image: url('./init_img/before.png')"></div>
+        </div>
+        <div class="image-split-container" id="rightContainer">
+            <div class="image-after" style="background-image: url('./init_img/after.png')"></div>
+        </div>
+        <div class="slider-handle"></div>
+    </div>
+
+    <!-- 缩放控制UI -->
+    <div id="zoomControls" class="zoom-controls" style="display: none;">
+        <button id="zoomInBtn" class="zoom-btn">+</button>
+        <button id="zoomOutBtn" class="zoom-btn">-</button>
+        <button id="resetZoomBtn" class="zoom-btn">⤢</button>
+        <div id="zoomLevel" class="zoom-level">100%</div>
+    </div>
+</div>
+<!-- 底部署名区域  -->
+<div class="bottom-signature">
+    <div>© 2025 - 2027</div>
+    <div>--新疆大学硕士 李康</div>
+</div>
+<script src="script.js"></script>
+</body>
+
+</html>
