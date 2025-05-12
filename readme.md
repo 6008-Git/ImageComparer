@@ -15,15 +15,14 @@
 1. ​​多模式对比​​
 
     1. ​​滑动对比​​：通过拖拽滑块实时查看前后图像差异（类似[JuxtaposeJS]的交互设计）。
-       ![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/1e8966e613bb4d2ca91dae48e609e6bf.png)
+     ![img.png](img.png)
 
 
 2. ​​淡入淡出​​：调节透明度叠加对比，适合医学影像或艺术品修复中的渐变分析。
-   ![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/5dca36a3956640c58839b0a4e87eb83b.png)
-
+       ![img_1.png](img_1.png)
 
 3. ​​左右分屏​​：并排显示原图与掩码图，支持同步缩放和移动（参考[MedPeer工具]的灵活性）。
-   ![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/22e8f752b0bc460a83a8bd0f6d707c33.png)
+   ![img_2.png](img_2.png)
 
 
 4. ​​专业级功能​​
